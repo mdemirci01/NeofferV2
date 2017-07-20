@@ -1,0 +1,27 @@
+<h1>Pages</h1>
+
+<p>Create and edit backend and/or frontend pages.</p>
+
+<p *ngIf="!pages"><em>Loading...</em></p>
+<a [routerLink]="['/pages/create']" class="btn btn-primary">Create</a>
+<table class='table' *ngIf="pages">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Slug</th>
+            <th>Published</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let page of pages">
+            <td>{{ page.id }}</td>
+            <td>{{ page.title }}</td>
+            <td>{{ page.slug }}</td>
+            <td>{{ page.published }}</td>
+            <td><a href="#" class="btn btn-primary">Edit</a> <a href="#" onclick="return confirm('Are you sure to delete this page? This action cannot be undo.')" class="btn btn-danger">Delete</a> </td>
+        </tr>
+    </tbody>
+</table>
+<dynamic-form [elements]="elements"></dynamic-form>
